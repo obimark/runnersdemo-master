@@ -1,8 +1,12 @@
 package hu.gde.runnersdemo;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
-public class ShoeEntity {
+public class ShoeEntity  {
 
 
     @Id
@@ -14,16 +18,15 @@ public class ShoeEntity {
     @JoinColumn(name = "runner_id")
     private RunnerEntity runner;
 
-
-    public ShoeEntity(){
-
-    }
     public long getShoeId() {
         return shoeId;
     }
 
     public String getShoeName() {
         return shoeName;
+    }
+    public void setRunner(RunnerEntity runner) {
+        this.runner = runner;
     }
 
     public void setShoeId(long shoeId) {

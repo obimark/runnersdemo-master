@@ -38,6 +38,8 @@ public class RunnerController {
             model.addAttribute("runner", runner);
             double averageLaptime = runnerService.getAverageLaptime(runner.getRunnerId());
             model.addAttribute("averageLaptime", averageLaptime);
+            List<ShoeEntity> shoes = runner.getShoes();
+            model.addAttribute("shoes", shoes);
             return "runner";
         } else {
             // handle error when runner is not found

@@ -13,6 +13,7 @@ public class RunnerService {
     @Autowired
     public RunnerService(RunnerRepository runnerRepository) {
         this.runnerRepository = runnerRepository;
+
     }
 
     public double getAverageLaptime(Long runnerId) {
