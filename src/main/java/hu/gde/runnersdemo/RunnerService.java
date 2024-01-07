@@ -8,7 +8,7 @@ import java.util.List;
 @Service
 public class RunnerService {
 
-    private final RunnerRepository runnerRepository;
+    public final RunnerRepository runnerRepository;
 
     @Autowired
     public RunnerService(RunnerRepository runnerRepository) {
@@ -29,4 +29,24 @@ public class RunnerService {
             return -1.0;
         }
     }
+
+    public static double getAvarageAge(RunnerRepository runnerRepository) {
+        List<RunnerEntity> runners = runnerRepository.findAll();
+        if (runners.isEmpty()) {
+            return 0;
+        }
+
+    double totalAge = 0;
+        for (RunnerEntity runner : runners) {
+            totalAge += runner.getRunnerAge();
+        }
+
+        return (double) totalAge / runners.size();
+
+
+    }
+
+
+
+
 }

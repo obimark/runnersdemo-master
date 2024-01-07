@@ -21,7 +21,13 @@ public class RunnerController {
     public String getAllRunners(Model model) {
         List<RunnerEntity> runners = runnerRepository.findAll();
         model.addAttribute("runners", runners);
+
+        // Átlagmagasság kiszámítása
+        double averageAge = RunnerService.getAvarageAge(runnerRepository);
+        model.addAttribute("averageAge", averageAge);
+
         return "runners";
+
     }
 
     @GetMapping("/runner/{id}")
