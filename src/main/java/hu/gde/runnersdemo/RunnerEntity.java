@@ -10,6 +10,7 @@ public class RunnerEntity {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long runnerId;
     private String runnerName;
+    private int runnerAge;
     private long averagePace;
 
     @OneToMany(mappedBy = "runner", cascade = CascadeType.ALL, orphanRemoval = true)
@@ -27,6 +28,10 @@ public class RunnerEntity {
         return runnerName;
     }
 
+    public int getRunnerAge() {
+        return runnerAge;
+    }
+
     public long getAveragePace() {
         return averagePace;
     }
@@ -39,6 +44,10 @@ public class RunnerEntity {
         this.runnerName = runnerName;
     }
 
+    public void setRunnerAge(int runnerAge) {
+        this.runnerAge = runnerAge;
+    }
+
     public void setAveragePace(long averagePace) {
         this.averagePace = averagePace;
     }
@@ -47,4 +56,3 @@ public class RunnerEntity {
         return laptimes;
     }
 }
-//teszt
