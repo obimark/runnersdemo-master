@@ -33,8 +33,13 @@ public class DataLoader implements CommandLineRunner {
         laptime2.setTimeSeconds(110);
         laptime2.setRunner(runnerEntity);
 
+        ShoeEntity shoe1 = new ShoeEntity();
+        shoe1.setShoeId(1);
+        shoe1.setShoeName("Nike");
+
         runnerEntity.getLaptimes().add(laptime1);
         runnerEntity.getLaptimes().add(laptime2);
+        runnerEntity.getShoes().add(shoe1);
 
         runnerRepository.save(runnerEntity);
 
@@ -54,8 +59,14 @@ public class DataLoader implements CommandLineRunner {
         laptime4.setTimeSeconds(100);
         laptime4.setRunner(runnerEntity2);
 
+        ShoeEntity shoe2 = new ShoeEntity();
+        shoe2.setShoeId(2);
+        shoe2.setShoeName("Adidas");
+
         runnerEntity2.getLaptimes().add(laptime3);
         runnerEntity2.getLaptimes().add(laptime4);
+
+        runnerEntity2.getShoes().add(shoe2);
 
         runnerRepository.save(runnerEntity2);
 
@@ -75,8 +86,14 @@ public class DataLoader implements CommandLineRunner {
         laptime6.setTimeSeconds(120);
         laptime6.setRunner(runnerEntity3);
 
+        ShoeEntity shoe3 = new ShoeEntity();
+        shoe3.setShoeId(1);
+        shoe3.setShoeName("Nike");
+
         runnerEntity3.getLaptimes().add(laptime5);
         runnerEntity3.getLaptimes().add(laptime6);
+
+        runnerEntity3.getShoes().add(shoe3);
 
         runnerRepository.save(runnerEntity3);
     }

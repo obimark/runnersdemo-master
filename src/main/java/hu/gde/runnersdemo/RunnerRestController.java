@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+import static hu.gde.runnersdemo.RunnerService.getAvarageAge;
+
 @RestController
 @RequestMapping("/api/v1/runner")
 public class RunnerRestController {
@@ -61,6 +63,14 @@ public class RunnerRestController {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Runner with ID " + id + " not found");
         }
     }
+
+    @GetMapping("/age")
+    public ResponseEntity<String> getAverageAge() {
+        double averageAge = RunnerService.getAvarageAge(runnerRepository);
+        return ResponseEntity.ok(averageAge + " is the average age!");
+    }
+
+
     public static class LapTimeRequest {
         private int lapTimeSeconds;
 
